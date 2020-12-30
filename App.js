@@ -11,8 +11,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <AuthStack.Navigator>
-        <AuthStack.Screen name="SignIn" component={SignIn}/>
-        <AuthStack.Screen name="CreateAccount" component={CreateAccount}/>
+        <AuthStack.Screen name="SignIn" component={SignIn} options={{title:'Sign In'}}/>
+        <AuthStack.Screen name="CreateAccount" component={CreateAccount} options={{title:'Create Account'}}/>
       </AuthStack.Navigator>
     </NavigationContainer>
   );
