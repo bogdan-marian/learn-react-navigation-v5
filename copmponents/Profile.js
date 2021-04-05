@@ -6,7 +6,7 @@ export const Profile = ({ navigation }) => {
   return (
     <ScreenContainer>
       <Text>Prifile Screen</Text>
-      <Button title="Drawer" onPress={() => alert("todo")} />
+      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
       <Button title="Sign Out" onPress={() => alert("todo")} />
     </ScreenContainer>
   );

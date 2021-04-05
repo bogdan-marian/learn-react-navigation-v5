@@ -7,8 +7,10 @@ import { CreateAccount } from "./copmponents/CreateAccount";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home } from "./copmponents/Home";
 import { Details } from "./copmponents/Details";
-import {Search} from "./copmponents/Search"
-import {Search2} from "./copmponents/Search2"
+import { Search } from "./copmponents/Search";
+import { Search2 } from "./copmponents/Search2";
+import { Profile } from "./copmponents/Profile";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const AuthStack = createStackNavigator();
 
@@ -20,10 +22,13 @@ const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Details" component={Details}
-      options={({route})=>({
-        title: route.params.name
-      })} />
+      <HomeStack.Screen
+        name="Details"
+        component={Details}
+        options={({ route }) => ({
+          title: route.params.name,
+        })}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -37,14 +42,31 @@ const SearchStackScreen = () => {
   );
 };
 
+const ProfileStack = createStackNavigator();
+const ProfileStackScreen = () => {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen name="Profile" component={Profile} />
+    </ProfileStack.Navigator>
+  );
+};
+
+const TabsScreen = () => (
+  <Tabs.Navigator>
+    <Tabs.Screen name="Home" component={HomeStackScreen} />
+    <Tabs.Screen name="Search" component={SearchStackScreen} />
+  </Tabs.Navigator>
+);
+
+const Drawer = createDrawerNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Tabs.Navigator>
-        <Tabs.Screen name="Home" component={HomeStackScreen} />
-        <Tabs.Screen name="Search" component={SearchStackScreen} />
-      </Tabs.Navigator>
-
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={TabsScreen} />
+        <Drawer.Screen name="Profile" component={ProfileStackScreen} />
+      </Drawer.Navigator>
       {/* <AuthStack.Navigator>
         <AuthStack.Screen
           name="SignIn"
