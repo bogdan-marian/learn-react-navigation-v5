@@ -63,7 +63,7 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [userToken, setUserToken] = react.useState("asdf");
+  const [userToken, setUserToken] = React.useState("asdf");
 
   React.useEffect(() => {
     setTimeout(() => {
