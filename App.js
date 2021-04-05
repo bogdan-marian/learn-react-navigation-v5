@@ -6,13 +6,13 @@ import { SignIn } from "./copmponents/SignIn";
 import { CreateAccount } from "./copmponents/CreateAccount";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home } from "./copmponents/Home";
-import { Profile } from "./copmponents/Profile";
+import {Search} from "./copmponents/Search"
 
 const AuthStack = createStackNavigator();
 
 const Tabs = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
-const ProfileStack = createStackNavigator();
+const SearchStack = createStackNavigator();
 
 const HomeStackScreen = () => {
   return (
@@ -22,11 +22,11 @@ const HomeStackScreen = () => {
   );
 };
 
-const ProfileStackScreen = () => {
+const SearchStackScreen = () => {
   return (
-    <ProfileStack.Navigator>
-      <ProfileStack.Screen name="Profile" component={Profile} />
-    </ProfileStack.Navigator>
+    <SearchStack.Navigator>
+      <SearchStack.Screen name="Search" component={Search} />
+    </SearchStack.Navigator>
   );
 };
 
@@ -35,7 +35,7 @@ export default function App() {
     <NavigationContainer>
       <Tabs.Navigator>
         <Tabs.Screen name="Home" component={HomeStackScreen} />
-        <Tabs.Screen name="Profile" component={ProfileStackScreen} />
+        <Tabs.Screen name="Search" component={SearchStackScreen} />
       </Tabs.Navigator>
 
       {/* <AuthStack.Navigator>
