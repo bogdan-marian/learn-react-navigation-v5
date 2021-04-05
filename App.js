@@ -11,6 +11,7 @@ import { Search } from "./copmponents/Search";
 import { Search2 } from "./copmponents/Search2";
 import { Profile } from "./copmponents/Profile";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Splash } from "./copmponents/Splash";
 
 const AuthStack = createStackNavigator();
 
@@ -61,6 +62,18 @@ const TabsScreen = () => (
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000)
+  }, [])
+
+  if (isLoading) {
+    return <Splash />;
+  }
+
   return (
     <NavigationContainer>
       <Drawer.Navigator>
