@@ -63,12 +63,13 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(true);
+  const [userToken, setUserToken] = react.useState("asdf");
 
   React.useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000)
-  }, [])
+    }, 1000);
+  }, []);
 
   if (isLoading) {
     return <Splash />;
