@@ -53,7 +53,7 @@ const ProfileStackScreen = () => {
   );
 };
 
-const TabsScreen = () => (
+const HomeStackScreen = () => (
   <Tabs.Navigator>
     <Tabs.Screen name="Home" component={HomeStackScreen} />
     <Tabs.Screen name="Search" component={SearchStackScreen} />
@@ -98,7 +98,7 @@ export default function App() {
       <NavigationContainer>
         {userToken ? (
           <Drawer.Navigator>
-            <Drawer.Screen name="Home" component={TabsScreen} />
+            <Drawer.Screen name="Home" component={HomeStackScreen} />
             <Drawer.Screen name="Profile" component={ProfileStackScreen} />
           </Drawer.Navigator>
         ) : (
